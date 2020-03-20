@@ -10,13 +10,7 @@ On Youtube front page, where you see the list of recommendations, if you click t
 
 ## How to use?
 
-It's currently an unpacked extension so clone this repository with
-
-```
-git clone git@github.com:Hamatti/blur-old-youtube-videos.git
-```
-
-then open your Google Chrome, go to [chrome://extensions](chrome://extensions), enable Developer mode from the toggle and select "Load unpacked" and navigate to this folder.
+It's currently an unpacked extension so [download this](https://github.com/Hamatti/blur-old-youtube-videos/archive/master.zip) and unzip it into a folder. Then open your Google Chrome, go to [chrome://extensions](chrome://extensions), enable Developer mode from the toggle and select "Load unpacked" and navigate to the folder you unzipped it into.
 
 ## LICENSE
 
