@@ -8,6 +8,8 @@ On Youtube front page, where you see the list of recommendations, if you click t
 
 ![Youtube interface with old videos blurred](screenshot.png)
 
+**NOTE:** Only works when using Youtube with the UI in English. It just finds any timestamp with the word "year" in it and blurs based on that.
+
 ## How to use?
 
 It's currently an unpacked extension so [download this](https://github.com/Hamatti/blur-old-youtube-videos/archive/master.zip) and unzip it into a folder. Then open your Google Chrome, go to [chrome://extensions](chrome://extensions), enable Developer mode from the toggle and select "Load unpacked" and navigate to the folder you unzipped it into.
