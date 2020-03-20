@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Blur old youtube recommendations",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*", "https://*.youtu.be/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_icon": "icon.png"
+  }
+}
