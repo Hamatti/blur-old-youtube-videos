@@ -20,23 +20,18 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     };
   })();
 
-  if (request.message === "clicked_browser_action") {
-    observeDOM(document.getElementsByTagName("body")[0], () => {
-      const videoItems = Object.values(
-        document.querySelectorAll("#content")
-      ).filter((node) => node.classList.contains("ytd-rich-item-renderer"));
-
-      videoItems.forEach((videoNode) => {
-        const metaBlock = videoNode.querySelector("#metadata-line");
-        const dateBlock = metaBlock?.children[1];
-
-        if (dateBlock?.innerText?.includes("year")) {
-          console.log("found one");
-          videoNode.style.filter = "grayscale(1) blur(7.4px)";
-        }
-      });
-    });
-
+  /**
+   * Find all video items from the page with "year" text in the
+   * "N [time span] ago" timestamp and add a inline style to each
+   * of those items.
+   *
+   * Youtube has videos inside elements with id content and out of those,
+   * elements with class ytd-rich-item-renderer are actual video thumbnails.
+   *
+   * If this extension breaks, it's probably due to changes in the HTML so
+   * looking at the structure first would be the best way to start debugging.
+   */
+  const blurVideos = () => {
     const videoItems = Object.values(
       document.querySelectorAll("#content")
     ).filter((node) => node.classList.contains("ytd-rich-item-renderer"));
@@ -50,5 +45,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         videoNode.style.filter = "grayscale(1) blur(7.4px)";
       }
     });
+  };
+
+  if (request.message === "clicked_browser_action") {
+    observeDOM(document.getElementsByTagName("body")[0], blurVideos);
+    blurVideos();
   }
 });
