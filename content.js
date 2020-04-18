@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  var observeDOM = (function () {
-    var MutationObserver =
+  const observeDOM = (function () {
+    const MutationObserver =
       window.MutationObserver || window.WebKitMutationObserver;
 
     return function (obj, callback) {
@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
       if (MutationObserver) {
         // define a new observer
-        var obs = new MutationObserver(function (mutations, observer) {
+        const obs = new MutationObserver(function (mutations, observer) {
           callback(mutations);
         });
         // have the observer observe foo for changes in children
@@ -41,7 +41,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       const dateBlock = metaBlock?.children[1];
 
       if (dateBlock?.innerText?.includes("year")) {
-        console.log("found one");
         videoNode.style.filter = "grayscale(1) blur(7.4px)";
       }
     });
